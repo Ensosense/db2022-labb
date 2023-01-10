@@ -59,3 +59,24 @@ create table StudentSchool select distinct UNF.Id as StudentId, SchoolId from UN
 alter table StudentSchool modify column StudentId int;
 alter table StudentSchool add primary key(StudentId, SchoolId);
 
+
+
+drop table if exists Phone;
+
+create table Phone select distinct 0 as PhoneId, Id as StudentId, "Home" as Type, HomePhone as Number from UNF where HomePhone is not null and HomePhone !=''
+union select distinct 0 as PhoneId, Id as StudentId, "Job" as Type, JobPhone as Number from UNF where JobPhone is not null and JobPhone !=''
+union select distinct 0 as PhoneId, Id as StudentId, "Mobile" as Type, MobilePhone1 as Number from UNF where MobilePhone1 is not null and MobilePhone1 !=''
+union select distinct 0 as PhoneId, Id as StudentId, "Mobile" as Type, MobilePhone2 as Number from UNF where MobilePhone2 is not null and MobilePhone2 !='';
+
+set @id = 0;
+
+update Phone set PhoneId = (select @Id := @id + 1);
+
+
+
+
+
+
+
+
+
