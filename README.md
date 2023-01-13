@@ -59,3 +59,12 @@ varchar Hobbie
 }
 
 ```
+
+
+## Instruktioner:
+
+Clona projektet: git clone https://github.com/Ensosense/db2022-labb.git
+
+För att köra projektet i Intellij: idea.cmd . för Windows, idea. för OS.
+
+Kör skriptet: docker exec -i iths-mysql mysql -uiths -piths < normalizering.sql
